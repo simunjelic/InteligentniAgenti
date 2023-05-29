@@ -33,15 +33,23 @@ to setup
 end
 
 to go
-  if ([xcor] of turtle 0 = 8) and ([ycor] of turtle 0 = 6)
-  [ stop ]
+  if (length samples1 = 2) and (empty? model) [
+    show "Job done"
+    stop
+  ]
   ask turtle 0 [ walk1 ]            ;; pokrece se funkcija walk1 za prvi rover
   wait 0.1
   ask turtle 1 [ walk2 ]            ;; pokrece se funkcija walk2 za drugi rover
+
   tick
 end
 
 to walk1  ;; funkcija prvog rovera
+
+  if length samples1 = 2 [
+    stop
+  ]
+
   if ([pcolor] of patch-here = orange)
   [
     set templist []
@@ -153,8 +161,8 @@ let targetPatch patch-at x-pos y-pos
   ]
 
 
-end
 
+end
 @#$#@#$#@
 GRAPHICS-WINDOW
 210
